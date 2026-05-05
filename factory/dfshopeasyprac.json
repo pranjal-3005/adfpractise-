@@ -1,0 +1,15 @@
+{
+	"name": "dfshopeasyprac",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "83ab7228-b21f-44f0-adaa-64c0575fa863",
+		"tenantId": "c72fa9b0-8d07-4768-b871-828eaf6094a8"
+	}
+}
