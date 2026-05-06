@@ -30,10 +30,13 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "copy_customer",
 						"writeBehavior": "upsert",
 						"upsertSettings": {
-							"useTempDB": true
+							"useTempDB": true,
+							"keys": [
+								"CustomerId",
+								""
+							]
 						},
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
@@ -216,7 +219,6 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "copyproduct ",
 						"writeBehavior": "upsert",
 						"upsertSettings": {
 							"useTempDB": true
