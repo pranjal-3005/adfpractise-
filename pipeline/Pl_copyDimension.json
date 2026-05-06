@@ -188,6 +188,7 @@
 			},
 			{
 				"name": "Copy_products",
+				"description": "COPY PRODUCT ",
 				"type": "Copy",
 				"dependsOn": [
 					{
