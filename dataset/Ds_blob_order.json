@@ -5,11 +5,21 @@
 			"referenceName": "ls_blobstoarge",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Filename": {
+				"type": "string",
+				"defaultValue": "month1/orders_jan2024.csv"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().Filename",
+					"type": "Expression"
+				},
 				"folderPath": "orders",
 				"container": "raw-data"
 			},

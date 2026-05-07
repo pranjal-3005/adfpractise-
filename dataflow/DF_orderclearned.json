@@ -1,0 +1,45 @@
+{
+	"name": "DF_orderclearned",
+	"properties": {
+		"description": "clearned order trnasformation",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Ds_blob_order",
+						"type": "DatasetReference"
+					},
+					"name": "Allorder",
+					"description": "cleared order "
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "filter1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          OrderId as string,",
+				"          CustomerId as string,",
+				"          ProductId as string,",
+				"          OrderDate as date 'yyyy-MM-dd',",
+				"          Quantity as string,",
+				"          UnitPrice as string,",
+				"          Discount as string,",
+				"          ShippingCost as string,",
+				"          PaymentMethod as string,",
+				"          OrderStatus as string,",
+				"          Region as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     wildcardPaths:['orders/month=*/orders_*.csv']) ~> Allorder",
+				"Allorder filter(ERROR_FUNCTION('')) ~> filter1"
+			]
+		}
+	}
+}
